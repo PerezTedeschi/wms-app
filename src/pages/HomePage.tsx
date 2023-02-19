@@ -1,7 +1,16 @@
+import { Button, Grid } from "@mui/material";
+import { Link } from "react-router-dom";
+import WarehouseGrid from "../components/WarehouseGrid";
+
 export default function HomePage() {
     return (
-        <>
-            <h3>This is the home page.</h3>
-        </>
+        <Grid container spacing={2} p={3} >
+            <Grid item xs={12}>
+                <WarehouseGrid></WarehouseGrid>    
+            </Grid>
+            <Grid item xs={12}>
+                <Button component={Link} to="/create" variant="contained">Create</Button>
+            </Grid>
+        </Grid>
     )
 }
