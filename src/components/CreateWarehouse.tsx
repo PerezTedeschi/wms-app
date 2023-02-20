@@ -15,14 +15,14 @@ export default function CreateWarehouse() {
         address: '',
         state: '',
         country: '',
-        zip: '',
-        file: ''
+        zip: ''        
     }
 
     async function createWarehouse(warehouse: warehouseCreateModel) {
         try {
             const formData = new FormData();
-            formData.append('file', warehouse.file);
+            if (warehouse.file)
+                formData.append('file', warehouse.file);
             formData.append('code', warehouse.code);
             formData.append('name', warehouse.name);
             formData.append('address', warehouse.address);

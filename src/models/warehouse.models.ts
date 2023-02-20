@@ -15,5 +15,5 @@ export interface warehouseCreateModel {
     state: string,
     country: string,
     zip: string,
-    file: string | Blob
+    file?: Blob
 }
