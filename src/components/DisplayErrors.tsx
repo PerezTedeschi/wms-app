@@ -1,9 +1,9 @@
-import { FormHelperText, Stack } from "@mui/material";
+import { Alert, Stack } from "@mui/material";
 
 export default function DisplayErrors(props: displayErrorsProps) {
   return (
-    <Stack spacing={3} direction="column">
-      {props.errors ? props.errors.map((error, index) => (<FormHelperText error key={index}>{error}</FormHelperText>)) : null}
+    <Stack spacing={3} direction="column" mt={3} mb={3}>
+      {props.errors ? props.errors.map((error, index) => (<Alert severity="error" key={index}>{error}</Alert>)) : null}
     </Stack>
   );
 }

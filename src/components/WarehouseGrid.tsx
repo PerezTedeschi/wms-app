@@ -1,12 +1,13 @@
 import { Button, Stack } from '@mui/material';
-import Box from '@mui/material/Box';
 import { DataGrid, GridColDef, GridRenderCellParams } from '@mui/x-data-grid';
-import axios, { AxiosResponse, AxiosError } from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import { useEffect, useState } from 'react';
-import { warehouseUrl } from '../endpoints';
-import { warehouseModel } from '../models/warehouse.models';
-import download from 'js-file-download';
+
+import Box from '@mui/material/Box';
 import customConfirm from '../utils/customConfirmation';
+import download from 'js-file-download';
+import { warehouseModel } from '../models/warehouse.models';
+import { warehouseUrl } from '../endpoints';
 
 export default function WarehouseGrid() {
   const [warehouses, setWarehouses] = useState<warehouseModel[]>([]);
@@ -66,7 +67,7 @@ export default function WarehouseGrid() {
           download(resp.data, filename)
         });
     }
-    catch (error: any | AxiosError) {
+    catch (error: any) {
       if (error && error.response) {
         console.error(error.response.data)
       }
@@ -78,7 +79,7 @@ export default function WarehouseGrid() {
       await axios.delete(`${warehouseUrl}/${id}`);
       loadData();
     }
-    catch (error: any | AxiosError) {
+    catch (error: any) {
       if (error && error.response) {
         console.error(error.response.data)
       }

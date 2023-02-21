@@ -13,13 +13,10 @@ export default function FileField(props: fileFieldProps) {
       />
       <label htmlFor={props.field}>
         <Button variant="contained" component="span">
-            {props.displayName}
+          {props.displayName}
         </Button>
       </label>
-      <FormHelperText
-        error= {props.error}
-        style={{ margin: "3px 14px 0" }}
-      >
+      <FormHelperText error={props.error} style={{ margin: "3px 14px 0" }}>
         {props.helperText}
       </FormHelperText>
       <Box m={0.5} />
@@ -27,7 +24,7 @@ export default function FileField(props: fileFieldProps) {
   );
 }
 
-interface fileFieldProps {  
+interface fileFieldProps {
   field: string;
   displayName: string;
   error: boolean;
