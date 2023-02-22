@@ -20,7 +20,7 @@ export async function getDirections(p1: coordinates, p2: coordinates): Promise<G
   const apiToken = process.env.REACT_APP_MAPBOX_API_TOKEN!;
   const result: GeoJSON.Position[][] = [];  
   const response = await axios.get(
-    `https://api.mapbox.com/directions/v5/mapbox/driving/${p1.longitude},${p1.latitude};${p2.longitude},${p2.latitude}?alternatives=false&continue_straight=false&geometries=geojson&overview=simplified&steps=false&access_token=${apiToken}`
+    `https://api.mapbox.com/directions/v5/mapbox/walking/${p1.longitude},${p1.latitude};${p2.longitude},${p2.latitude}?alternatives=false&continue_straight=false&geometries=geojson&overview=simplified&steps=false&access_token=${apiToken}`
   );
 
   let origen: GeoJSON.Position = [Number(p1.longitude), Number(p1.latitude)];
