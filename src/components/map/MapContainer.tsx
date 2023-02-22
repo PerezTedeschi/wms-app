@@ -19,7 +19,7 @@ export default function MapContainer() {
     setShowMap(false);
     const origenCoordinates = await getCoordinates(address);
     const response = await axios.get(`${warehouseUrl}/find-closest/${origenCoordinates?.latitude}/${origenCoordinates?.longitude}`);
-    
+        
     setAddressCoordinates(origenCoordinates);
     setWarehouses(response.data);
 

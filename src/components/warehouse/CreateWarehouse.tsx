@@ -17,6 +17,9 @@ import { useState } from "react";
 import { warehouseCreateModel } from "../../models/warehouse.models";
 import { warehouseUrl } from "../../endpoints";
 
+// @ts-ignore
+import { NotificationManager } from "react-notifications";
+
 const initialValues: warehouseCreateModel = {
   code: "",
   name: "",
@@ -51,6 +54,7 @@ export default function CreateWarehouse() {
           headers: { "Content-Type": "multipart/form-data" },
         });
         navigate("/");
+        NotificationManager.success("Warehouse was successfully created.");
       } catch (error: any) {
         if (error.response.data) setErrors(error.response.data);
       }

@@ -1,4 +1,5 @@
 import "./App.css";
+import 'react-notifications/lib/notifications.css';
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { publicRoutes, routes } from "./utils/routes-config";
@@ -6,10 +7,14 @@ import { publicRoutes, routes } from "./utils/routes-config";
 import AuthentitcationContext from "./contexts/AuthenticationContext";
 import Authorized from "./components/auth/Authorized";
 import Menu from "./components/shared/Menu";
+
 import { claimModel } from "./models/auth.models";
 import configureInterceptor from "./utils/httpInterceptors";
 import { getClaims } from "./utils/handleJwt";
 import { useState } from "react";
+
+// @ts-ignore
+import {NotificationContainer} from 'react-notifications';
 
 configureInterceptor();
 
@@ -19,6 +24,7 @@ function App() {
   return (
     <BrowserRouter>
       <AuthentitcationContext.Provider value={{ claims, update: setClaims }}>
+        <NotificationContainer/>
         <Menu />
         <Authorized
           authorized={

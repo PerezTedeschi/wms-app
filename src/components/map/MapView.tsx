@@ -1,6 +1,6 @@
 import "mapbox-gl/dist/mapbox-gl.css";
 
-import { Looks3, LooksOne, LooksTwo } from "@mui/icons-material";
+import { Looks3, LooksOne, LooksTwo, Warehouse } from "@mui/icons-material";
 import Map, { Marker, NavigationControl } from "react-map-gl";
 import { coordinates, getDirections } from "../../utils/geocoding";
 import { useEffect, useState } from "react";
@@ -14,20 +14,22 @@ export default function MapView(props: viewMapProps) {
   const [directions, setDirections] =
     useState<GeoJSON.Feature<GeoJSON.Geometry>>();
   useEffect(() => {
-    const { latitude, longitude } = props.warehouses[0];
-    const closestLocation: coordinates = { latitude, longitude };
+    if (props.warehouses.length > 0) {
+      const { latitude, longitude } = props.warehouses[0];
+      const closestLocation: coordinates = { latitude, longitude };
 
-    getDirections(props.coordinates, closestLocation).then((response) => {
-      const GeoJSONdata: GeoJSON.Feature<GeoJSON.Geometry> = {
-        type: "Feature",
-        properties: {},
-        geometry: {
-          type: "MultiLineString",
-          coordinates: response,
-        },
-      };
-      setDirections(GeoJSONdata);
-    });
+      getDirections(props.coordinates, closestLocation).then((response) => {
+        const GeoJSONdata: GeoJSON.Feature<GeoJSON.Geometry> = {
+          type: "Feature",
+          properties: {},
+          geometry: {
+            type: "MultiLineString",
+            coordinates: response,
+          },
+        };
+        setDirections(GeoJSONdata);
+      });
+    }
   }, [setDirections, props.coordinates, props.warehouses]);
 
   return (
