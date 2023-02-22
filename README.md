@@ -6,7 +6,7 @@ This proyect requires an API in order to work: [https://github.com/PerezTedeschi
 [https://aycron-wms-app.web.app/](https://aycron-wms-app.web.app/)
 
 ### Available test users
-- admin@test.com (role admin)
+- admin@test.com (role: manager)
 - user@test.com
 
 Any new account created from the app will not have manager-level privileges or access. They will be a regular user with standard permissions.
