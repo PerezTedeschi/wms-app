@@ -12,5 +12,5 @@ export const routes = [
   { path: "/", component: HomePage },
   { path: "/create", component: CreateWarehouse },
   { path: "/register", component: Register },
-  { path: "/login", component: Login },
+  { path: "/login", component: Login }  
 ];

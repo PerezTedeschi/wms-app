@@ -4,6 +4,8 @@ export interface warehouseModel {
     name: string,
     address: string,
     state: string,
+    latitude: string,
+    longitude: string,
     country: string,
     zip: string
 }

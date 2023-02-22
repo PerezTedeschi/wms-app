@@ -11,17 +11,17 @@ import { warehouseUrl } from '../endpoints';
 
 export default function WarehouseGrid() {
   const [warehouses, setWarehouses] = useState<warehouseModel[]>([]);
-
+  
   useEffect(() => {
     loadData()
   }, [])
 
   const columns: GridColDef[] = [
     { field: 'code', headerName: 'Code', width: 90 },
-    { field: 'name', headerName: 'Name', width: 150 },
-    { field: 'address', headerName: 'Address', width: 350 },
-    { field: 'state', headerName: 'State', width: 150 },
-    { field: 'country', headerName: 'Country', width: 150 },
+    { field: 'name', headerName: 'Name', width: 250 },
+    { field: 'address', headerName: 'Address', width: 500 },
+    { field: 'state', headerName: 'State', width: 200 },
+    { field: 'country', headerName: 'Country', width: 200 },
     { field: 'zip', headerName: 'Zip', width: 100 },
     {
       field: 'id',

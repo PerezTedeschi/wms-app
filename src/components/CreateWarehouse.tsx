@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 import Stack from "@mui/material/Stack";
 import TextField from "./TextField";
 import axios from "axios";
+import { getCoordinates } from "../utils/geocoding";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { warehouseCreateModel } from "../models/warehouse.models";
@@ -30,7 +31,8 @@ export default function CreateWarehouse() {
   const [errors, setErrors] = useState<string[]>([]);
 
   async function createWarehouse(warehouse: warehouseCreateModel) {
-    try {
+    const coordinates = await getCoordinates(warehouse.address);
+    if (coordinates != null) {
       const formData = new FormData();
       if (warehouse.file) formData.append("file", warehouse.file);
       formData.append("code", warehouse.code);
@@ -39,15 +41,21 @@ export default function CreateWarehouse() {
       formData.append("state", warehouse.state);
       formData.append("country", warehouse.country);
       formData.append("zip", warehouse.zip);
-      await axios({
-        method: "post",
-        url: warehouseUrl,
-        data: formData,
-        headers: { "Content-Type": "multipart/form-data" },
-      });
-      navigate("/");
-    } catch (error: any) {
-      if (error.response.data) setErrors(error.response.data);
+      formData.append("longitude", coordinates.latitude);
+      formData.append("latitude", coordinates.longitude);
+      try {
+        await axios({
+          method: "post",
+          url: warehouseUrl,
+          data: formData,
+          headers: { "Content-Type": "multipart/form-data" },
+        });
+        navigate("/");
+      } catch (error: any) {
+        if (error.response.data) setErrors(error.response.data);
+      }
+    } else {
+      setErrors(["The address you entered is not valid."]);
     }
   }
 
