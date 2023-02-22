@@ -1,8 +1,9 @@
 import { Button, Grid } from "@mui/material";
 
+import Authorized from "../components/auth/Authorized";
 import { Link } from "react-router-dom";
-import MapContainer from "../components/MapContainer";
-import WarehouseGrid from "../components/WarehouseGrid";
+import MapContainer from "../components/map/MapContainer";
+import WarehouseGrid from "../components/warehouse/WarehouseGrid";
 
 export default function HomePage() {
   return (
@@ -15,9 +16,15 @@ export default function HomePage() {
           Create
         </Button>
       </Grid>
-      <Grid item xs={12}>
-        <MapContainer />
-      </Grid>
+      <Authorized
+        authorized={
+          <Grid item xs={12}>
+            <MapContainer />
+          </Grid>
+        }
+        notAuthorized={<></>}
+        role="manager"
+      ></Authorized>
     </Grid>
   );
 }

@@ -5,17 +5,17 @@ import { Form, Formik } from "formik";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import { Container } from "@mui/system";
-import DisplayErrors from "./DisplayErrors";
-import FileField from "./FileField";
+import DisplayErrors from "../shared/DisplayErrors";
+import FileField from "../shared/FileField";
 import { Link } from "react-router-dom";
 import Stack from "@mui/material/Stack";
-import TextField from "./TextField";
+import TextField from "../shared/TextField";
 import axios from "axios";
-import { getCoordinates } from "../utils/geocoding";
+import { getCoordinates } from "../../utils/geocoding";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { warehouseCreateModel } from "../models/warehouse.models";
-import { warehouseUrl } from "../endpoints";
+import { warehouseCreateModel } from "../../models/warehouse.models";
+import { warehouseUrl } from "../../endpoints";
 
 const initialValues: warehouseCreateModel = {
   code: "",

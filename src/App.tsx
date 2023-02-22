@@ -5,7 +5,7 @@ import { publicRoutes, routes } from "./utils/routes-config";
 
 import AuthentitcationContext from "./contexts/AuthenticationContext";
 import Authorized from "./components/auth/Authorized";
-import Menu from "./components/Menu";
+import Menu from "./components/shared/Menu";
 import { claimModel } from "./models/auth.models";
 import configureInterceptor from "./utils/httpInterceptors";
 import { getClaims } from "./utils/handleJwt";

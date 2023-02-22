@@ -1,4 +1,4 @@
-import CreateWarehouse from "./../components/CreateWarehouse";
+import CreateWarehouse from "../components/warehouse/CreateWarehouse";
 import HomePage from "./../pages/HomePage";
 import Login from "./../components/auth/Login";
 import Register from "./../components/auth/Register";

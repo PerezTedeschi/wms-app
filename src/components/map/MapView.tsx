@@ -1,16 +1,15 @@
 import "mapbox-gl/dist/mapbox-gl.css";
 
 import { Looks3, LooksOne, LooksTwo } from "@mui/icons-material";
-import Map, { Layer, Marker, NavigationControl, Source } from "react-map-gl";
-import { coordinates, getDirections } from "../utils/geocoding";
+import Map, { Marker, NavigationControl } from "react-map-gl";
+import { coordinates, getDirections } from "../../utils/geocoding";
 import { useEffect, useState } from "react";
 
-import { Alert } from "@mui/material";
-import Home from "@mui/icons-material/Home";
+import DirectionsLayer from "./DirectionsLayer";
 import PinDropIcon from "@mui/icons-material/PinDrop";
-import { warehouseModel } from "../models/warehouse.models";
+import { warehouseModel } from "../../models/warehouse.models";
 
-export default function ViewMap(props: viewMapProps) {
+export default function MapView(props: viewMapProps) {
   const apiToken = process.env.REACT_APP_MAPBOX_API_TOKEN;
   const [directions, setDirections] =
     useState<GeoJSON.Feature<GeoJSON.Geometry>>();
@@ -58,26 +57,21 @@ export default function ViewMap(props: viewMapProps) {
             latitude={Number(warehouse.latitude)}
             anchor="bottom"
           >
-            {index == 0 && <LooksOne />}
-            {index == 1 && <LooksTwo />}
-            {index == 2 && <Looks3 />}
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                flexWrap: "wrap",
+              }}
+            >
+              {index === 0 && <LooksOne />}
+              {index === 1 && <LooksTwo />}
+              {index === 2 && <Looks3 />}
+              <span>{warehouse.code}</span>
+            </div>
           </Marker>
-        ))}        
-        <Source id="polylineLayer" type="geojson" data={directions}>
-          <Layer
-            id="lineLayer"
-            type="line"
-            source="my-data"
-            layout={{
-              "line-join": "round",
-              "line-cap": "round",
-            }}
-            paint={{
-              "line-color": "rgba(3, 170, 238, 0.5)",
-              "line-width": 5,
-            }}
-          />
-        </Source>
+        ))}
+        <DirectionsLayer directions={directions} />
       </Map>
     </div>
   );

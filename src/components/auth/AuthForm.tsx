@@ -3,7 +3,7 @@ import * as Yup from "yup";
 import { Button, Stack } from "@mui/material";
 import { Form, Formik, FormikHelpers } from "formik";
 
-import TextField from "../TextField";
+import TextField from "../shared/TextField";
 import { userCredentialsModel } from "../../models/auth.models";
 
 export default function AuthForm(props: authFormProps) {

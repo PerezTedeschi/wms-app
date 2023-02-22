@@ -1,13 +1,13 @@
 import { Box, Container } from "@mui/system";
-import { coordinates, getCoordinates, getDirections } from "../utils/geocoding";
+import { coordinates, getCoordinates } from "../../utils/geocoding";
 
 import AddressForm from "./AddressForm";
+import MapView from "./MapView";
 import { Typography } from "@mui/material";
-import ViewMap from "./ViewMap";
 import axios from "axios";
 import { useState } from "react";
-import { warehouseModel } from "../models/warehouse.models";
-import { warehouseUrl } from "../endpoints";
+import { warehouseModel } from "../../models/warehouse.models";
+import { warehouseUrl } from "../../endpoints";
 
 export default function MapContainer() {
   const [showMap, setShowMap] = useState(false);
@@ -34,7 +34,7 @@ export default function MapContainer() {
       <AddressForm onSubmit={handleAddressSubmit} />
       <Box m={3}/>
       {showMap && (
-        <ViewMap coordinates={addressCoordinates!} warehouses={warehouses} />
+        <MapView coordinates={addressCoordinates!} warehouses={warehouses} />
       )}
     </Container>
   );

@@ -4,10 +4,10 @@ import axios, { AxiosResponse } from 'axios';
 import { useEffect, useState } from 'react';
 
 import Box from '@mui/material/Box';
-import customConfirm from '../utils/customConfirmation';
+import customConfirm from '../../utils/customConfirmation';
 import download from 'js-file-download';
-import { warehouseModel } from '../models/warehouse.models';
-import { warehouseUrl } from '../endpoints';
+import { warehouseModel } from '../../models/warehouse.models';
+import { warehouseUrl } from '../../endpoints';
 
 export default function WarehouseGrid() {
   const [warehouses, setWarehouses] = useState<warehouseModel[]>([]);

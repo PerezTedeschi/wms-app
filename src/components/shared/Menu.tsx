@@ -1,6 +1,6 @@
 import AppBar from "@mui/material/AppBar";
-import AuthentitcationContext from "../contexts/AuthenticationContext";
-import Authorized from "./auth/Authorized";
+import AuthentitcationContext from "../../contexts/AuthenticationContext";
+import Authorized from "../auth/Authorized";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import { Home } from "@mui/icons-material";
@@ -8,7 +8,7 @@ import { IconButton } from "@mui/material";
 import { Link } from "react-router-dom";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import { deleteToken } from "../utils/handleJwt";
+import { deleteToken } from "../../utils/handleJwt";
 import { useContext } from "react";
 
 export default function Menu() {

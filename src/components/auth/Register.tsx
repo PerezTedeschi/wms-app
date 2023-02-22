@@ -10,7 +10,7 @@ import { useContext, useState } from "react";
 import AuthForm from "./AuthForm";
 import AuthentitcationContext from "../../contexts/AuthenticationContext";
 import { Box } from "@mui/system";
-import DisplayErrors from "../DisplayErrors";
+import DisplayErrors from "../shared/DisplayErrors";
 import { accountUrl } from "../../endpoints";
 import axios from "axios";
 

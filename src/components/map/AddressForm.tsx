@@ -8,7 +8,9 @@ export default function AddressForm ({ onSubmit }: addressFormProps) {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    onSubmit(address);
+    if (address.trim()) {
+      onSubmit(address);
+    }
   };
 
   const handleAddressChange = (event: React.ChangeEvent<HTMLInputElement>) => {
