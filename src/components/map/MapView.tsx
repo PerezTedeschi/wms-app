@@ -1,6 +1,6 @@
 import "mapbox-gl/dist/mapbox-gl.css";
 
-import { Looks3, LooksOne, LooksTwo, Warehouse } from "@mui/icons-material";
+import { Looks3, LooksOne, LooksTwo } from "@mui/icons-material";
 import Map, { Marker, NavigationControl } from "react-map-gl";
 import { coordinates, getDirections } from "../../utils/geocoding";
 import { useEffect, useState } from "react";
@@ -8,6 +8,12 @@ import { useEffect, useState } from "react";
 import DirectionsLayer from "./DirectionsLayer";
 import PinDropIcon from "@mui/icons-material/PinDrop";
 import { warehouseModel } from "../../models/warehouse.models";
+
+import mapboxgl from "mapbox-gl"; // This is a dependency of react-map-gl even if you didn't explicitly install it
+
+// @ts-ignore
+// eslint-disable-next-line import/no-webpack-loader-syntax
+mapboxgl.workerClass = require("worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker").default;
 
 export default function MapView(props: viewMapProps) {
   const apiToken = process.env.REACT_APP_MAPBOX_API_TOKEN;

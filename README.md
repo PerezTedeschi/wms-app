@@ -1,6 +1,32 @@
-# Getting Started with Create React App
+# Warehouse management system app (WMS)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This proyect requires an API in order to work: [https://github.com/PerezTedeschi/wms-api](https://github.com/PerezTedeschi/wms-api)
+
+## Live demo
+[https://aycron-wms-app.web.app/](https://aycron-wms-app.web.app/)
+
+### Available test users
+- admin@test.com (role admin)
+- user@test.com
+
+Any new account created from the app will not have manager-level privileges or access. They will be a regular user with standard permissions.
+
+## Environmental Variables
+The following environmental variables are required to run this application:
+
+REACT_APP_API_URL: The URL to the API.
+REACT_APP_MAPBOX_API_TOKEN: An API key from Mapbox that is used to display the map and for geocoding.
+
+You can set these variables by creating a .env.development file in the root directory of the project and adding the following lines:
+
+```
+REACT_APP_API_URL=<YOUR_API_URL>
+REACT_APP_MAPBOX_API_TOKEN=<YOUR_MAPBOX_API_KEY>
+```
+
+Replace <YOUR_API_URL> with the URL of the API and <YOUR_MAPBOX_API_KEY> with your API key from Mapbox.
+
+Note that these environmental variables are only required during development. When you deploy your application to production, you should configure these variables using the appropriate mechanisms for your deployment environment.
 
 ## Available Scripts
 
@@ -8,39 +34,12 @@ In the project directory, you can run:
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+To run the application, use the following command:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+```
+npm start
+```
 
-### `npm test`
+This will start a development server and open the application in your default browser.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).

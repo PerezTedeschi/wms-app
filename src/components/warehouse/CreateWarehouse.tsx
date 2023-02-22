@@ -44,8 +44,8 @@ export default function CreateWarehouse() {
       formData.append("state", warehouse.state);
       formData.append("country", warehouse.country);
       formData.append("zip", warehouse.zip);
-      formData.append("longitude", coordinates.latitude);
-      formData.append("latitude", coordinates.longitude);
+      formData.append("longitude", coordinates.longitude);
+      formData.append("latitude", coordinates.latitude);
       try {
         await axios({
           method: "post",
